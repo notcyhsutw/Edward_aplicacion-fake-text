@@ -27,8 +27,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet var swiche: UISwitch!
     
-    @IBOutlet var etiqueta: UILabel!
-    
     @IBOutlet var readyboton: UIButton!
     
     @IBOutlet var botonborraroqlq: UIButton!
@@ -227,7 +225,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             if turno == 0 {
                 
-                etiqueta.text = textfield.text
+                navigationItem.title = textfield.text
                 
             }
             
