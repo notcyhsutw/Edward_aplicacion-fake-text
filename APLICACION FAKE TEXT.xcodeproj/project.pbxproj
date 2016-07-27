@@ -17,6 +17,9 @@
 		47E4F7E61D39896B00CEA4D8 /* image2.png in Resources */ = {isa = PBXBuildFile; fileRef = 47E4F7E31D39896B00CEA4D8 /* image2.png */; };
 		47E4F7E71D39896B00CEA4D8 /* IMAGEN.png in Resources */ = {isa = PBXBuildFile; fileRef = 47E4F7E41D39896B00CEA4D8 /* IMAGEN.png */; };
 		47E4F7EA1D39C6CD00CEA4D8 /* FONDO.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 47E4F7E91D39C6CD00CEA4D8 /* FONDO.PNG */; };
+		F66DED541D48A6FB001067EA /* IncomingMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66DED531D48A6FB001067EA /* IncomingMessageCell.swift */; };
+		F66DED561D48A825001067EA /* OutgoingMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66DED551D48A825001067EA /* OutgoingMessageCell.swift */; };
+		F66DED581D48A98D001067EA /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66DED571D48A98D001067EA /* MessageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		47E4F7E31D39896B00CEA4D8 /* image2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image2.png; sourceTree = "<group>"; };
 		47E4F7E41D39896B00CEA4D8 /* IMAGEN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMAGEN.png; sourceTree = "<group>"; };
 		47E4F7E91D39C6CD00CEA4D8 /* FONDO.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FONDO.PNG; sourceTree = "<group>"; };
+		F66DED531D48A6FB001067EA /* IncomingMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomingMessageCell.swift; sourceTree = "<group>"; };
+		F66DED551D48A825001067EA /* OutgoingMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutgoingMessageCell.swift; sourceTree = "<group>"; };
+		F66DED571D48A98D001067EA /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,9 @@
 			children = (
 				47E4F7B51D3988B100CEA4D8 /* AppDelegate.swift */,
 				47E4F7B71D3988B100CEA4D8 /* ViewController.swift */,
+				F66DED571D48A98D001067EA /* MessageCell.swift */,
+				F66DED531D48A6FB001067EA /* IncomingMessageCell.swift */,
+				F66DED551D48A825001067EA /* OutgoingMessageCell.swift */,
 				47E4F7B91D3988B100CEA4D8 /* Main.storyboard */,
 				47E4F7BC1D3988B100CEA4D8 /* Assets.xcassets */,
 				47E4F7E31D39896B00CEA4D8 /* image2.png */,
@@ -268,6 +277,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F66DED541D48A6FB001067EA /* IncomingMessageCell.swift in Sources */,
+				F66DED581D48A98D001067EA /* MessageCell.swift in Sources */,
+				F66DED561D48A825001067EA /* OutgoingMessageCell.swift in Sources */,
 				47E4F7B81D3988B100CEA4D8 /* ViewController.swift in Sources */,
 				47E4F7B61D3988B100CEA4D8 /* AppDelegate.swift in Sources */,
 			);
