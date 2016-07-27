@@ -56,7 +56,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         self.textfield.delegate = self
         
-        
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 48.0
     }
     
     
@@ -65,83 +66,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        // use large numbers to avoid collisions with system-defined views
-        let messageViewTag = 2
-        let ballonViewTag = 4
-        let labelTag = 8
-        
-        var ballonview = UIImageView()
-        var label = UILabel()
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        
-        
-        cell.selectionStyle = UITableViewCellSelectionStyle.None
-        
-        if let messageView = cell.contentView.viewWithTag(messageViewTag) {
-            // message view is set
-            ballonview = (messageView.viewWithTag(ballonViewTag) as! UIImageView)
-            label = (messageView.viewWithTag(labelTag) as! UILabel)
-        } else {
-            // message view is NOT set
-            ballonview.frame = CGRectZero
-            ballonview.tag = ballonViewTag
-            
-            label.frame = CGRectZero
-            label.backgroundColor = UIColor.clearColor()
-            label.lineBreakMode = NSLineBreakMode.ByWordWrapping
-            label.textAlignment = NSTextAlignment.Left
-            label.numberOfLines = 0
-            label.tag = labelTag
-            label.sizeToFit()
-            label.font = label.font.fontWithSize(15.0)
-            
-            let message = UIView()
-            message.tag = messageViewTag
-            message.frame = CGRectMake(0.0, 0.0, cell.frame.size.width, cell.frame.size.height)
-            message.addSubview(ballonview)
-            message.addSubview(label)
-            
-            cell.contentView.addSubview(message)
-        }
-        
         let message = messages[indexPath.row]
-        let textt: String = message.content!
         
+        let cellIdentifier = message.isOutgoing ? "OutgoingCell" : "IncomingCell"
         
-        let size:CGSize = textt.boundingRectWithSize(CGSizeMake(240.0, 480.0), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(15.0)], context: nil).size
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
         
-        
-        var ballon:UIImage = UIImage()
-        
-        
-        if (message.isOutgoing) {
-            
-            
-            ballonview.frame = CGRectMake(314.5 - (size.width + 28.0), 2.5, size.width + 34.0, CGFloat(ceil(Float(size.height))) + 12.0)
-            ballon = UIImage(named: "IMAGEN")!.stretchableImageWithLeftCapWidth(24, topCapHeight: 15)
-            
-            label.frame = CGRectMake(305.0 - (size.width + 5.0), 8.0, size.width + 5.0, CGFloat(ceil(Float(size.height))))
-            label.textColor = UIColor.whiteColor()
-            
-            
-            
-        } else {
-            
-            ballonview.frame = CGRectMake(0.0, 2.0, size.width + 28, size.height + 12)
-            ballon = UIImage(named: "image2")!.stretchableImageWithLeftCapWidth(24, topCapHeight: 15)
-            
-            
-            label.frame = CGRectMake(16, 8, size.width + 5, size.height)
-            label.textColor = UIColor.blackColor()
-            
+        if let messageCell = cell as? MessageCell {
+            messageCell.messageLabel?.text = message.content
         }
-        
-        
-        ballonview.image = ballon
-        label.text = textt as String
         
         return cell
+        
     }
     
     
@@ -161,16 +97,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
-    {
-        
-        let body:String = messages[indexPath.row].content!
-        let bodysize:CGSize = body.boundingRectWithSize(CGSizeMake(240.0, 480.0), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(15.0)], context: nil).size
-        return bodysize.height + 15
-        
-    }
-    
     
     //el de abajo
     @IBAction func Okqlq(sender: AnyObject)
